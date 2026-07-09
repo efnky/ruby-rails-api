@@ -12,7 +12,8 @@ RUN bundle config set --local deployment 'true' && \
 FROM ruby:3.3.11-slim
 ENV RAILS_ENV=production \
     RAILS_LOG_TO_STDOUT=true \
-    RAILS_SERVE_STATIC_FILES=true
+    RAILS_SERVE_STATIC_FILES=true \
+    DEBIAN_FRONTEND=noninteractive
 WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libsqlite3-0 \
