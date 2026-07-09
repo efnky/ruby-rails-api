@@ -21,7 +21,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     mkdir -p tmp log storage && \
     chown -R rails:rails tmp log storage
 COPY --from=builder /app/vendor/bundle ./vendor/bundle
-COPY --from=builder /app/.bundle ./.bundle
 COPY . .
 RUN bundle config set --local deployment 'true' && \
     bundle config set --local without 'development test' && \
