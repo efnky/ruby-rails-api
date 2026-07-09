@@ -15,7 +15,8 @@ ENV RAILS_ENV=production \
     RAILS_SERVE_STATIC_FILES=true
 WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    libsqlite3-0 && \
+    libsqlite3-0 \
+    nodejs && \
     rm -rf /var/lib/apt/lists/* && \
     groupadd -r rails && useradd -r -g rails -u 1001 rails && \
     mkdir -p tmp log storage && \
